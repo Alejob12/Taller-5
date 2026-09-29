@@ -33,8 +33,8 @@ public class YaHayUnPedidoEnCursoException extends HamburguesaException
         return "Ya existe un pedido en curso, para el cliente " + nombreCliente + " así que no se puede crear un pedido para " + nombreNuevoCliente;
     }
 
-	public Object getNombreCliente() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getNombreCliente( )
+    {
+        return nombreCliente;
+    }
 }

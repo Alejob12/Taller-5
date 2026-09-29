@@ -45,7 +45,10 @@ public class ProductoAjustado implements Producto
     @Override
     public int getPrecio( )
     {
-        return 0;
+        int precio = productoBase.getPrecio( );
+        for( Ingrediente ing : agregados )
+            precio += ing.getCostoAdicional( );
+        return precio;
     }
 
     /**
@@ -57,7 +60,7 @@ public class ProductoAjustado implements Producto
     public String generarTextoFactura( )
     {
         StringBuffer sb = new StringBuffer( );
-        sb.append( productoBase );
+        sb.append( productoBase.getNombre( ) );
         for( Ingrediente ing : agregados )
         {
             sb.append( "    +" + ing.getNombre( ) );
@@ -73,9 +76,20 @@ public class ProductoAjustado implements Producto
         return sb.toString( );
     }
 
-	public void agregarIngrediente(Ingrediente ingredienteExtra) {
-		// TODO Auto-generated method stub
-		
-	}
+    /**
+     * Agrega un ingrediente adicional al producto, lo que aumenta su precio.
+     */
+    public void agregarIngrediente( Ingrediente ingredienteExtra )
+    {
+        agregados.add( ingredienteExtra );
+    }
+
+    /**
+     * Quita un ingrediente del producto base; no cambia el precio.
+     */
+    public void eliminarIngrediente( Ingrediente ingrediente )
+    {
+        eliminados.add( ingrediente );
+    }
 
 }

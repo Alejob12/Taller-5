@@ -66,9 +66,9 @@ public class RestauranteTest {
     @Test
     void testCargarInformacionRestaurante() {
         try {
-            File archivoIngredientes = new File("ingredientes.txt");
-            File archivoMenu = new File("menu.txt");
-            File archivoCombos = new File("combos.txt");
+            File archivoIngredientes = new File("data/ingredientes.txt");
+            File archivoMenu = new File("data/menu.txt");
+            File archivoCombos = new File("data/combos.txt");
 
             restaurante.cargarInformacionRestaurante(archivoIngredientes, archivoMenu, archivoCombos);
             
@@ -83,9 +83,9 @@ public class RestauranteTest {
     @Test
     void testCargarInformacionRestauranteConIngredienteRepetido() {
         try {
-            File archivoIngredientes = new File("ingredientes_repetidos.txt");
-            File archivoMenu = new File("menu.txt");
-            File archivoCombos = new File("combos.txt");
+            File archivoIngredientes = new File("data/ingredientes_repetidos.txt");
+            File archivoMenu = new File("data/menu.txt");
+            File archivoCombos = new File("data/combos.txt");
 
             restaurante.cargarInformacionRestaurante(archivoIngredientes, archivoMenu, archivoCombos);
             fail("Se esperaba una excepción IngredienteRepetidoException.");
@@ -98,9 +98,9 @@ public class RestauranteTest {
     @Test
     void testCargarMenuConProductoRepetido() {
         try {
-            File archivoIngredientes = new File("ingredientes.txt");
-            File archivoMenu = new File("menu_repetido.txt");
-            File archivoCombos = new File("combos.txt");
+            File archivoIngredientes = new File("data/ingredientes.txt");
+            File archivoMenu = new File("data/menu_repetido.txt");
+            File archivoCombos = new File("data/combos.txt");
 
             restaurante.cargarInformacionRestaurante(archivoIngredientes, archivoMenu, archivoCombos);
             fail("Se esperaba una excepción ProductoRepetidoException.");
@@ -113,9 +113,9 @@ public class RestauranteTest {
     @Test
     void testCargarCombosConProductoFaltante() {
         try {
-            File archivoIngredientes = new File("ingredientes.txt");
-            File archivoMenu = new File("menu.txt");
-            File archivoCombos = new File("combos_producto_faltante.txt");
+            File archivoIngredientes = new File("data/ingredientes.txt");
+            File archivoMenu = new File("data/menu.txt");
+            File archivoCombos = new File("data/combos_producto_faltante.txt");
 
             restaurante.cargarInformacionRestaurante(archivoIngredientes, archivoMenu, archivoCombos);
             fail("Se esperaba una excepción ProductoFaltanteException.");
